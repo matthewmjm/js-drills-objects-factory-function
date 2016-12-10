@@ -1,5 +1,22 @@
 function recipeFactory(name, ingredients, steps) {
     // your code here
+    return {
+        name: name,
+        ingredients: ingredients,
+        steps: steps,
+        stepsHtml: function () {
+            return '<ol>' + this.steps.map(
+                function (step) {
+                    return '<li>' + step + '</li>';
+                }).join('') + '</ol>';
+        },
+        ingredientsHtml: function () {
+            return '<ul>' + this.ingredients.map(
+                function (ing) {
+                    return '<li>' + ing + '</li>';
+                }).join('') + '</ul>';
+        }
+    }
 }
 
 // tests
